@@ -30,7 +30,7 @@ All code is embedded in a single HTML file:
 
 ## Usage  
 1. **Direct Deployment**:  
-   - Download `index.html` from the [repository](https://github.com/add-qwq/Personal-Homepage-zong).  
+   - Download `index.html`.  
    - Open in modern browsers (Chrome, Firefox, etc.) to view the homepage with real-time countdown.  
 
 2. **Customization**:  
@@ -80,7 +80,7 @@ Works on modern browsers (Chrome, Firefox, Edge, Safari). Older browsers may hav
 
 ## 使用方法  
 1. **直接部署**：  
-   - 从 [仓库](https://github.com/add-qwq/Personal-Homepage-zong) 下载 `index.html`。  
+   - 下载 `index.html`。  
    - 使用 Chrome、Firefox 等现代浏览器打开，即可查看带实时倒计时的个人主页。  
 
 2. **自定义修改**：  
