@@ -17,7 +17,7 @@ This project, named **Personal-Homepage-zong**, is a customized personal homepag
 - **Interactive Tag Cloud**: Hover effects on tags (e.g., "Anime," "Minecraft") highlight hobbies with scaling and color changes.  
 - **Timeline Updates**: Reverse-chronological display of recent activities with smooth slide-in animations.  
 - **Modal "About" Popup**: Click the navigation link to trigger a personalized introduction modal, closable via button or outside click.  
-- **Birthday Countdown**: Real-time countdown to [Bumblebee - Android Zongzi]’s birthday (set to May 6th by default), displaying months, days, hours, minutes, and seconds. Updates every second and includes hover animations.  
+- **Birthday Countdown**: Real-time countdown to [Bumblebee - Android Zongzi]’s birthday (set to May 6th by default), displaying days, hours, minutes, and seconds. Updates every second and includes hover animations.  
 - **Responsive Design**: Automatic layout adjustment for mobile, tablet, and desktop devices.  
 
 
@@ -67,7 +67,7 @@ Works on modern browsers (Chrome, Firefox, Edge, Safari). Older browsers may hav
 - **可交互标签云**：标签（如“二次元”“Minecraft”）支持悬停缩放与变色，直观呈现兴趣爱好。  
 - **时间线动态**：按时间倒序列出近期活动，每条动态附带平滑滑入动画。  
 - **模态“关于”弹窗**：点击导航栏“关于”触发个性化介绍弹窗，支持按钮关闭或点击外部区域关闭。  
-- **生日倒计时**：实时显示距离 [大黄蜂-安卓粽] 生日（默认设定为5月6日）的剩余时间，精确到月、天、小时、分钟、秒，每秒自动更新并包含悬停动画。  
+- **生日倒计时**：实时显示距离 [大黄蜂-安卓粽] 生日（默认设定为5月6日）的剩余时间，精确到天、小时、分钟、秒，每秒自动更新并包含悬停动画。  
 - **响应式布局**：自动适配手机、平板、桌面端，不同屏幕尺寸下布局智能调整。  
 
 
