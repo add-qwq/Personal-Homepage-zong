@@ -554,7 +554,8 @@
         </div>
 
         <div class="footer">
-            © 2025 穆村段旭的个人空间 | <a href="https://github.com/add-qwq/Personal-Homepage-zong" class="footer">所有内容均为Rock原创</a>
+            © 2025 穆村段旭的个人空间 | <a href="https://github.com/add-qwq/Personal-Homepage-zong"
+                class="footer">所有内容均为Rock原创</a>
         </div>
     </div>
 
@@ -581,62 +582,75 @@
             e.preventDefault();
             document.querySelector('.modal-overlay').classList.add('active');
         });
-    
+
         document.querySelector('.modal-close').addEventListener('click', () => {
             document.querySelector('.modal-overlay').classList.remove('active');
         });
-    
+
         document.querySelector('.modal-overlay').addEventListener('click', (e) => {
             if (e.target === e.currentTarget) {
                 e.target.classList.remove('active');
             }
         });
- 
+
         function getNextBirthday() {
             const today = new Date();
             const currentYear = today.getFullYear();
-            const birthday = new Date(currentYear, 4, 6);
+            const birthday = new Date(currentYear, 4, 6);//(0-11月，默认值为5.6号)
             return today > birthday ? new Date(currentYear + 1, 4, 6) : birthday;
         }
-    
-        function formatTimeDifference(ms) {
-            const totalSeconds = Math.floor(ms / 1000);
-            const seconds = totalSeconds % 60;
-            const minutes = Math.floor(totalSeconds / 60) % 60;
-            const hours = Math.floor(totalSeconds / 3600) % 24;
-            const days = Math.floor(totalSeconds / 86400);
-            const months = Math.floor(days / 30);
-            const remainingDays = days % 30;
-            return { months, remainingDays, hours, minutes, seconds };
+
+        function calculateAccurateMonthsDays(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            let months = 0;
+            let days = 0;
+            const totalMs = end - start;
+
+            if (totalMs <= 0) return { months: 0, days: 0 };
+
+            while (true) {
+                const daysInCurrentMonth = new Date(start.getFullYear(), start.getMonth() + 1, 0).getDate();
+                const daysLeftInMonth = daysInCurrentMonth - start.getDate();
+
+                if (totalMs > (daysLeftInMonth + 1) * 86400000) {
+                    months++;
+                    start.setMonth(start.getMonth() + 1);
+                    start.setDate(1);
+                } else {
+                    days = Math.ceil(totalMs / 86400000);
+                    break;
+                }
+
+                if (start > end) break;
+            }
+
+            return { months, days };
         }
-    
+
         function updateCountdown() {
             const countdownText = document.querySelector('.countdown-text');
             const now = new Date();
-            const todayDate = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
-            const birthdayDate = `${now.getFullYear()}-5-6`;
-    
-            if (todayDate === birthdayDate) {
-                countdownText.textContent = '大黄蜂，生日快乐';
-                return;
-            }
-    
             const nextBirthday = getNextBirthday();
             const timeDiff = nextBirthday - now;
-    
+
             if (timeDiff <= 0) {
                 countdownText.textContent = '大黄蜂，生日快乐';
                 return;
             }
-    
-            const { months, remainingDays, hours, minutes, seconds } = formatTimeDifference(timeDiff);
-            countdownText.textContent = 
-                `距离我的生日还有：${months}个月 ${remainingDays}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+
+            const days = Math.floor(timeDiff / (1000 * 86400));       // 总天数
+            const hours = Math.floor((timeDiff / 3600000) % 24);      // 剩余小时
+            const minutes = Math.floor((timeDiff / 60000) % 60);      // 剩余分钟
+            const seconds = Math.floor((timeDiff / 1000) % 60);       // 剩余秒
+
+            countdownText.textContent =
+                `距离我的生日还有：${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
         }
-    
+
         updateCountdown();
         setInterval(updateCountdown, 1000);
-    
+
         document.querySelectorAll('.countdown-container').forEach(el => {
             observer.observe(el);
         });
